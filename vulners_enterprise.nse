@@ -85,7 +85,7 @@ local nmap = require "nmap"
 local stdnse = require "stdnse"
 local os = require "os"
 
-local api_version="1.10"
+local api_version="1.11"
 local mincvss=stdnse.get_script_args(SCRIPT_NAME .. ".mincvss")
 mincvss = tonumber(mincvss) or 0.0
 
@@ -216,8 +216,7 @@ function get_results(what)
   local attempt_n=0
   local postbody = {
           software={what},
-          fields={'type', 'metrics', 'enchantments'},
-          apiKey=api_key
+          fields={'type', 'metrics', 'enchantments'}
   }
 
   -- local api_url = ('%s?%s'):format(api_endpoint, url.build_query(query))
@@ -225,7 +224,8 @@ function get_results(what)
     header={
       ['User-Agent'] = string.format('Vulners NMAP Enterprise %s', api_version),
       ['Accept-Encoding'] = "gzip, deflate",
-      ['Content-Type'] = "application/json"
+      ['Content-Type'] = "application/json",
+      ['X-Api-Key'] = api_key
     },
     any_af = true,
   }
