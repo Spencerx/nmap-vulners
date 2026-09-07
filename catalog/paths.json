@@ -261,6 +261,7 @@
   "/console/welcome",
   "/controller/config",
   "/controller/registry-clients",
+  "/core/CHANGELOG.txt",
   "/core/login",
   "/core/profiles/testing/testing.info",
   "/corporate/webpages/sessionexpired.jsp",
